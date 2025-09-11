@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P5R Fusion Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Tiny inline favicon to avoid 404 -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23b30000'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-size='44' fill='white'%3EP%3C/text%3E%3C/svg%3E">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Persona 5 Royal — Fusion Help Chatbot</h1>
+        <p>Ask about normal & special recipes, components, skills, and more.</p>
+    </div>
+
+    <div class="chat-container">
+        <div id="chat">
+            <!-- Initial bot message -->
+            <div class="message bot">
+                <div class="message-avatar">🔹</div>
+                <div class="message-content">
+                    <strong>Velvet Attendant:</strong>
+                    Welcome to the Velvet Room. Try questions like:
+                    <br>- How do I fuse <em>Yoshitsune</em>?
+                    <br>- Show normal pairs that produce <em>Trumpeter</em>.
+                    <br>- What’s <em>Alice</em>’s special fusion recipe?
+                </div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Ask a P5R fusion question… e.g. “How do I fuse Satanael?”"
+                autocomplete="off">
+            <button class="send-button" id="sendBtn">
+                <span>Send</span><span>🗡️</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="loading" id="loading">
+        <div class="message-avatar">🔹</div>
+        <span>Consulting the Velvet Room</span>
+        <div class="loading-dots">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <script>
+        // === Config ===
+        // If you're running Flask locally on port 8000:
+        const API_URL = "http://127.0.0.1:8000/ask";
+
+        const input = document.getElementById("userInput");
+        const chat = document.getElementById("chat");
+        const loading = document.getElementById("loading");
+        const sendBtn = document.getElementById("sendBtn");
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function appendMessage(role, text) {
+            const wrap = document.createElement('div');
+            wrap.className = `message ${role}`;
+            const avatar = role === 'user' ? '🎴' : '🔹';
+            const name = role === 'user' ? 'You' : 'Velvet Attendant';
+            wrap.innerHTML = `
+      <div class="message-avatar">${avatar}</div>
+      <div class="message-content">
+        <strong>${name}:</strong> ${escapeHtml(text)}
+      </div>`;
+            chat.appendChild(wrap);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const question = input.value.trim();
+            if (!question) return;
+
+            appendMessage('user', question);
+            input.value = '';
+            input.blur();
+            loading.style.display = 'flex';
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question })
+                });
+
+                loading.style.display = 'none';
+
+                if (!res.ok) throw new Error(`Server error: ${res.status}`);
+
+                const data = await res.json();
+                const text = data.answer || `Error: ${data.error || 'Unknown error'}`;
+                appendMessage(data.answer ? 'bot' : 'bot error', text);
+
+            } catch (err) {
+                loading.style.display = 'none';
+                appendMessage('bot error', `Connection error: ${err.message}`);
+            }
+        }
+
+        input.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+        sendBtn.addEventListener("click", sendMessage);
+
+        window.addEventListener('load', () => input.focus());
+    </script>
+</body>
+
+</html>
