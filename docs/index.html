@@ -54,7 +54,7 @@
     <script>
         // === Config ===
         // If you're running Flask locally on port 8000:
-        const API_URL = "http://127.0.0.1:8000/ask";
+       const API_URL = (window.BACKEND_URL || "https://avi-ai-1-P5R-Fusion-Chatbot.onrender.com").replace(/\/$/, "") + "/ask";
 
         const input = document.getElementById("userInput");
         const chat = document.getElementById("chat");
@@ -125,4 +125,5 @@
 
 
 </html>
+
 
