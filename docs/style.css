@@ -6,7 +6,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-    background: url('background.jpg') center/cover no-repeat fixed;
+    background: url('./background.jpg') center/cover no-repeat fixed;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -270,4 +270,5 @@ body {
     .message-content {
         max-width: 92%;
     }
+
 }
