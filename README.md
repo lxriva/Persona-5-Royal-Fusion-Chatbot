@@ -186,7 +186,7 @@ If you prefer Python 3.11, adjust requirements accordingly (`faiss-cpu==1.7.4`, 
 
 This repository is shared for educational use. Persona 5 Royal assets/data remain the property of their respective owners. See individual file headers for any additional attributions or license terms.
 
-- **Header title banner**: Created using the Persona 5 title generator by lzxhahaha — https://lzxhahaha.github.io/persona5 (credit required for use of this tool).
+- **Header title banner**: Created using the Persona 5 title generator by lzxhahaha — https://lzxhahaha.github.io/persona5.
 - **Game IP**: Persona 5 Royal © ATLUS / SEGA. This project is a fan-made, non-commercial tool for educational purposes.
 - **Data files**: This project uses P5R data files provided in this repository.
   - Original compilation/formatting credit: the open-source project [persona5_calculator](https://github.com/chinhodado/persona5_calculator) by chinhodado and contributors, and/or the original creator credited in the included files.
