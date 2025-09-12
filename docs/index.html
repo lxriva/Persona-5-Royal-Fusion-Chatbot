@@ -68,18 +68,34 @@
         }
 
         function appendMessage(role, text) {
-            const wrap = document.createElement('div');
-            wrap.className = `message ${role}`;
-            const avatar = role === 'user' ? '🎴' : '🔹';
-            const name = role === 'user' ? 'You' : 'Velvet Attendant';
-            wrap.innerHTML = `
-      <div class="message-avatar">${avatar}</div>
-      <div class="message-content">
-        <strong>${name}:</strong> ${escapeHtml(text)}
-      </div>`;
-            chat.appendChild(wrap);
-            chat.scrollTop = chat.scrollHeight;
+          const wrap = document.createElement('div');
+          wrap.className = `message ${role}`;
+          const avatar = role === 'user' ? '🎴' : '🔹';
+          const name = role === 'user' ? 'You' : 'Velvet Attendant';
+        
+          // Split bot responses into segments if they contain "---"
+          let contentHtml;
+          if (role === 'bot') {
+            // Split by newline, filter blanks
+            const parts = text.split(/\n+/).filter(p => p.trim() !== "");
+            contentHtml = `<strong>${name}:</strong>`;
+            parts.forEach((part, i) => {
+              // Add divider between blocks, but not before the first
+              if (i > 0) contentHtml += `<hr class="resp-divider">`;
+              contentHtml += `<div class="resp-block">${escapeHtml(part)}</div>`;
+            });
+          } else {
+            // User messages stay single block
+            contentHtml = `<strong>${name}:</strong> ${escapeHtml(text)}`;
+          }
+        
+          wrap.innerHTML = `
+            <div class="message-avatar">${avatar}</div>
+            <div class="message-content">${contentHtml}</div>`;
+          chat.appendChild(wrap);
+          chat.scrollTop = chat.scrollHeight;
         }
+
 
         async function sendMessage() {
             const question = input.value.trim();
@@ -125,5 +141,6 @@
 
 
 </html>
+
 
 
