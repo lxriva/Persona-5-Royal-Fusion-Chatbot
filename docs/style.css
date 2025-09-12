@@ -23,20 +23,57 @@ body {
 }
 
 .header h1 {
-    font-size: 2.4rem;
-    font-weight: 900;
-    letter-spacing: .5px;
-    background: red;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 6s ease-in-out infinite;
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: .6px;
+
+  /* Persona 5 Royal metallic gradient */
+  background: linear-gradient(
+    135deg,
+    #fff 0%,         /* bright white */
+    #dcb96e 20%,     /* light gold */
+    #b97a2f 40%,     /* deeper bronze */
+    #a11d1d 70%,     /* Persona red */
+    #000 100%        /* fade into black */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  text-shadow: 0 2px 8px rgba(0,0,0,.55); /* glow for contrast */
 }
 
 .header p {
-    color: #d61313;
-    opacity: .95;
-    font-size: 1.05rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  background: linear-gradient(
+    135deg,
+    #fff 0%,
+    #f1d28a 25%,
+    #d08c3c 55%,
+    #a11d1d 85%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 1px 3px rgba(0,0,0,.55);
+}
+
+/* Tweak to ensure correct gradient on mobile platform */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.9rem;
+    background: linear-gradient(
+      135deg,
+      #fff 0%,
+      #e2c77c 30%,
+      #b97a2f 55%,
+      #a11d1d 90%
+    );
+  }
+  .header p {
+    font-size: 0.95rem;
+  }
 }
 
 @keyframes gradientShift {
@@ -330,4 +367,25 @@ body {
   .header h1 { font-size: 2rem; }
   .title-badge { padding: 0.5rem 0.9rem; }
 }
+
+/* === Official P5R logo from Atlus === */
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,.45));
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Make sure the title badge & logo shrink nicely on mobile */
+@media (max-width: 600px) {
+  .brand-logo { height: 44px; }
+}
+
 
