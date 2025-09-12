@@ -25,7 +25,7 @@ A lightweight web app that answers Persona 5 Royal fusion questions using a smal
 
 ```
 .
-├─ Backend/                 # FastAPI service (Render)
+├─ Backend/                # FastAPI service (Render)
 │  ├─ server.py            # exposes: GET /health, POST /ask
 │  ├─ requirements.txt     # Python deps (Py 3.13–friendly pins)
 │  ├─ Procfile             # web: uvicorn server:app --host 0.0.0.0 --port ${PORT:-8000}
@@ -34,7 +34,10 @@ A lightweight web app that answers Persona 5 Royal fusion questions using a smal
 └─ docs/                   # Frontend (GitHub Pages)
    ├─ index.html           # sets window.BACKEND_URL to the Render URL
    ├─ style.css
+   ├─ p5r-logo.png
+   ├─ Persona 5 Royal Fusion Help Chatbot.png
    └─ background.jpg
+
 ```
 
 ## 🚀 Quick Start (Local Development)
@@ -174,7 +177,17 @@ langchain-openai>=0.1.21
 If you prefer Python 3.11, adjust requirements accordingly (`faiss-cpu==1.7.4`, `numpy<2.0.0`, `langchain==0.2.12`) and pin via `Backend/runtime.txt` → `python-3.11.9`.
 
 ## 🙏 Credits & Attribution
+- **Game IP**: Persona 5 Royal © ATLUS / SEGA. This project is a fan-made, non-commercial tool for educational purposes.
+- **Data files**: This project uses P5R data files provided in this repository.
+  - Original compilation/formatting credit: the open-source project [persona5_calculator](https://github.com/chinhodado/persona5_calculator) by chinhodado and contributors, and/or the original creator credited in the included files.
+  - If you are the original author of any data included here and want attribution adjusted, please open an issue or PR.
+- **Project setup**: Frontend/Backend split authored by the repository owner; LLM-backed retrieval with FAISS.
 
+## 📄 License
+
+This repository is shared for educational use. Persona 5 Royal assets/data remain the property of their respective owners. See individual file headers for any additional attributions or license terms.
+
+- **Header title banner**: Created using the Persona 5 title generator by lzxhahaha — https://lzxhahaha.github.io/persona5 (credit required for use of this tool).
 - **Game IP**: Persona 5 Royal © ATLUS / SEGA. This project is a fan-made, non-commercial tool for educational purposes.
 - **Data files**: This project uses P5R data files provided in this repository.
   - Original compilation/formatting credit: the open-source project [persona5_calculator](https://github.com/chinhodado/persona5_calculator) by chinhodado and contributors, and/or the original creator credited in the included files.

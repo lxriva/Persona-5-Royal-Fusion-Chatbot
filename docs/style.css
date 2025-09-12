@@ -22,59 +22,12 @@ body {
     margin-bottom: 1.75rem;
 }
 
-.header h1 {
-  font-size: 2.8rem;
-  font-weight: 900;
-  letter-spacing: .6px;
-
-  /* Brighter metallic gradient */
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,    /* pure white highlight */
-    #fff6d1 25%,   /* very light gold */
-    #fbe38b 55%,   /* bright gold */
-    #f5d76c 85%    /* warm gold */
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-  text-shadow: 0 2px 10px rgba(0,0,0,.4); /* soft glow for contrast */
-}
-
 .header p {
-  font-size: 1.15rem;
-  font-weight: 600;
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,    /* bright white */
-    #fff7d6 35%,   /* soft champagne */
-    #fdeba2 65%,   /* luminous gold */
-    #f9db6d 100%   /* warm bright gold */
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-  text-shadow: 0 1px 5px rgba(0,0,0,.35);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(255, 183, 0);
 }
 
-/* Tweak to ensure correct gradient on mobile platform */
-@media (max-width: 600px) {
-  .header h1 {
-    font-size: 1.9rem;
-    background: linear-gradient(
-      135deg,
-      #fff 0%,
-      #e2c77c 30%,
-      #b97a2f 55%,
-      #a11d1d 90%
-    );
-  }
-  .header p {
-    font-size: 0.95rem;
-  }
-}
 
 @keyframes gradientShift {
 
@@ -321,9 +274,7 @@ body {
 
 }
 
-
 /* === P5R Title Readability Upgrade (2025-09-12) === */
-
 /* Improve font rendering across platforms */
 body {
   -webkit-font-smoothing: antialiased;
@@ -341,51 +292,3 @@ body {
   box-shadow: 0 12px 30px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);
   backdrop-filter: blur(4px);
 }
-
-/* Replace gradient-clip text with solid, sharp text and a subtle stroke */
-.header h1 {
-  /* reset previous gradient-clip approach to avoid fuzziness */
-  -webkit-text-fill-color: initial;
-  -webkit-background-clip: initial;
-  background: none;
-  color: #ff3b3b;
-  font-weight: 900;
-  letter-spacing: .6px;
-  text-shadow: 0 3px 12px rgba(0,0,0,.35);
-  -webkit-text-stroke: 1.1px rgba(0,0,0,.55); /* thin outline for visibility */
-}
-
-/* Subheader copy – brighter and crisper */
-.header p {
-  color: #f0f2f5;
-  opacity: .92;
-  text-shadow: 0 1px 2px rgba(0,0,0,.35);
-}
-
-/* Smaller screens */
-@media (max-width: 600px) {
-  .header h1 { font-size: 2rem; }
-  .title-badge { padding: 0.5rem 0.9rem; }
-}
-
-/* === Official P5R logo from Atlus === */
-.brand-lockup {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.brand-logo {
-  height: 3rem;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 6px 16px rgba(0,0,0,.45));
-}
-
-@media (max-width: 600px) {
-  .brand-logo { height: 3rem; }  /* was 44px */
-}
-
-
-
-

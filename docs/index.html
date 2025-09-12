@@ -15,13 +15,16 @@
 
 <body>
     <div class="header">
-      <div class="brand-lockup">
-        <img class="brand-logo" src="p5r-logo.png" alt="Persona 5 Royal logo" />
-        <div class="title-badge"><h1>Persona 5 Royal — Fusion Help Chatbot</h1></div>
-      </div>
-      <p>Ask about normal & special recipes, components, skills, and more.</p>
+        <img
+            class="title-banner"
+            src="Persona 5 Royal Fusion Help Chatbot.png"
+            alt="Persona 5 Royal — Fusion Help Chatbot"
+            width="1545" height="134"
+            loading="eager"
+            decoding="async"
+        />
+        <p>Ask about normal & special recipes, components, skills, and more.</p>
     </div>
-
 
     <div class="chat-container">
         <div id="chat">
@@ -42,7 +45,7 @@
             <input type="text" id="userInput" placeholder="Ask a P5R fusion question… e.g. “How do I fuse Satanael?”"
                 autocomplete="off">
             <button class="send-button" id="sendBtn">
-                <span>Send</span><span>🗡️</span>
+                <span>Send</span>
             </button>
         </div>
     </div>
@@ -57,7 +60,6 @@
 
     <script>
         // === Config ===
-        // If you're running Flask locally on port 8000:
        const API_URL = (window.BACKEND_URL || "https://avi-ai-1-P5R-Fusion-Chatbot.onrender.com").replace(/\/$/, "") + "/ask";
 
         const input = document.getElementById("userInput");
@@ -100,7 +102,6 @@
           chat.scrollTop = chat.scrollHeight;
         }
 
-
         async function sendMessage() {
             const question = input.value.trim();
             if (!question) return;
@@ -142,9 +143,8 @@
         window.addEventListener('load', () => input.focus());
     </script>
 </body>
-
-
 </html>
+
 
 
 
