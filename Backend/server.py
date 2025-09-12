@@ -30,7 +30,7 @@ app.add_middleware(
 # Embeddings + VectorStore
 emb = OpenAIEmbeddings(
     openai_api_key=os.getenv("OPENAI_API_KEY"),
-    model="gpt-5-nano",
+    model="text-embedding-3-small",
 )
 vs = FAISS.load_local(str(VSTORE_DIR), emb, allow_dangerous_deserialization=True)
 retriever = vs.as_retriever(k=6)
@@ -63,4 +63,5 @@ async def ask(body: AskBody):
     msg = prompt.format_messages(question=body.question, context=context)
     answer = llm.invoke(msg).content
     return {"answer": answer}
+
 
