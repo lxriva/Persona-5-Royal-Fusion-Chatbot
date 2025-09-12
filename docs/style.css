@@ -23,40 +23,40 @@ body {
 }
 
 .header h1 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: 900;
   letter-spacing: .6px;
 
-  /* Persona 5 Royal metallic gradient */
+  /* Brighter metallic gradient */
   background: linear-gradient(
     135deg,
-    #fff 0%,         /* bright white */
-    #dcb96e 20%,     /* light gold */
-    #b97a2f 40%,     /* deeper bronze */
-    #a11d1d 70%,     /* Persona red */
-    #000 100%        /* fade into black */
+    #ffffff 0%,    /* pure white highlight */
+    #fff6d1 25%,   /* very light gold */
+    #fbe38b 55%,   /* bright gold */
+    #f5d76c 85%    /* warm gold */
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
-  text-shadow: 0 2px 8px rgba(0,0,0,.55); /* glow for contrast */
+  text-shadow: 0 2px 10px rgba(0,0,0,.4); /* soft glow for contrast */
 }
 
 .header p {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 600;
   background: linear-gradient(
     135deg,
-    #fff 0%,
-    #f1d28a 25%,
-    #d08c3c 55%,
-    #a11d1d 85%
+    #ffffff 0%,    /* bright white */
+    #fff7d6 35%,   /* soft champagne */
+    #fdeba2 65%,   /* luminous gold */
+    #f9db6d 100%   /* warm bright gold */
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 1px 3px rgba(0,0,0,.55);
+
+  text-shadow: 0 1px 5px rgba(0,0,0,.35);
 }
 
 /* Tweak to ensure correct gradient on mobile platform */
@@ -376,16 +376,15 @@ body {
 }
 
 .brand-logo {
-  height: 56px;
+  height: 112px;   /* was 56px */
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 6px 16px rgba(0,0,0,.45));
-  image-rendering: -webkit-optimize-contrast;
 }
 
-/* Make sure the title badge & logo shrink nicely on mobile */
 @media (max-width: 600px) {
-  .brand-logo { height: 44px; }
+  .brand-logo { height: 88px; }  /* was 44px */
 }
+
 
 
