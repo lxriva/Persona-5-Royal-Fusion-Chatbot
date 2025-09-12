@@ -376,15 +376,16 @@ body {
 }
 
 .brand-logo {
-  height: 112px;   /* was 56px */
+  height: 3rem;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 6px 16px rgba(0,0,0,.45));
 }
 
 @media (max-width: 600px) {
-  .brand-logo { height: 88px; }  /* was 44px */
+  .brand-logo { height: 3rem; }  /* was 44px */
 }
+
 
 
 
