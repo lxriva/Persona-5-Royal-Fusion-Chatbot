@@ -30,14 +30,15 @@ app.add_middleware(
 # Embeddings + VectorStore
 emb = OpenAIEmbeddings(
     openai_api_key=os.getenv("OPENAI_API_KEY"),
-    model="text-embedding-3-small",
+    model="gpt-5-nano",
 )
 vs = FAISS.load_local(str(VSTORE_DIR), emb, allow_dangerous_deserialization=True)
 retriever = vs.as_retriever(k=6)
 
 prompt = ChatPromptTemplate.from_template(
     """You are a concise Persona 5 Royal fusion guide.
-Use the context to answer with *correct Royal* recipes/pairs. If multiple options, list all of them.
+Use the context to answer with *correct Royal* recipes/pairs. If multiple options, list all of them. 
+If the user asks a question that isn't persona related, say, "Sorry, I'm not authorized to answer that question."
 
 Context:
 {context}
@@ -62,3 +63,4 @@ async def ask(body: AskBody):
     msg = prompt.format_messages(question=body.question, context=context)
     answer = llm.invoke(msg).content
     return {"answer": answer}
+
