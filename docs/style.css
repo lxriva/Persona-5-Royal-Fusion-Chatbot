@@ -272,3 +272,50 @@ body {
     }
 
 }
+
+
+/* === P5R Title Readability Upgrade (2025-09-12) === */
+
+/* Improve font rendering across platforms */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Title container to create contrast against the busy background */
+.title-badge {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(0,0,0,.70), rgba(0,0,0,.45));
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 12px 30px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(4px);
+}
+
+/* Replace gradient-clip text with solid, sharp text and a subtle stroke */
+.header h1 {
+  /* reset previous gradient-clip approach to avoid fuzziness */
+  -webkit-text-fill-color: initial;
+  -webkit-background-clip: initial;
+  background: none;
+  color: #ff3b3b;
+  font-weight: 900;
+  letter-spacing: .6px;
+  text-shadow: 0 3px 12px rgba(0,0,0,.35);
+  -webkit-text-stroke: 1.1px rgba(0,0,0,.55); /* thin outline for visibility */
+}
+
+/* Subheader copy – brighter and crisper */
+.header p {
+  color: #f0f2f5;
+  opacity: .92;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+  .header h1 { font-size: 2rem; }
+  .title-badge { padding: 0.5rem 0.9rem; }
+}
