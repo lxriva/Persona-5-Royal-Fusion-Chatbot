@@ -34,7 +34,6 @@ A lightweight web app that answers Persona 5 Royal fusion questions using a smal
 └─ docs/                   # Frontend (GitHub Pages)
    ├─ index.html           # sets window.BACKEND_URL to the Render URL
    ├─ style.css
-   ├─ p5r-logo.png
    ├─ Persona 5 Royal Fusion Help Chatbot.png
    └─ background.jpg
 
