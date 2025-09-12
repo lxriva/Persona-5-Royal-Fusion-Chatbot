@@ -155,6 +155,18 @@ body {
     color: #fff;
 }
 
+/* === Segmented Bot Responses (2025-09-12) === */
+.resp-block {
+  margin: 0.35rem 0;
+  line-height: 1.55;
+}
+
+.resp-divider {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,.12);
+  margin: 0.5rem 0;
+}
+
 /* Input row */
 .input-container {
     padding: 1rem 1.25rem;
@@ -318,3 +330,4 @@ body {
   .header h1 { font-size: 2rem; }
   .title-badge { padding: 0.5rem 0.9rem; }
 }
+
