@@ -30,7 +30,7 @@ app.add_middleware(
 # Embeddings + VectorStore
 emb = OpenAIEmbeddings(
     openai_api_key=os.getenv("OPENAI_API_KEY"),
-    model="gpt-4o-mini",
+    model="text-embedding-3-small",
 )
 vs = FAISS.load_local(str(VSTORE_DIR), emb, allow_dangerous_deserialization=True)
 retriever = vs.as_retriever(k=6)
