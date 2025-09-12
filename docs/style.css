@@ -123,7 +123,7 @@ body {
 }
 
 .bot .message-avatar {
-    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    background: linear-gradient(135deg, #f2f1f1, #ababab);
 }
 
 .message-content {
@@ -141,12 +141,11 @@ body {
     margin-left: auto;
     margin-right: 0;
     max-width: 78%;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .35);
 }
 
 .bot .message-content {
     background: #f7f7f7;
-    color: #1c1c1c;
+    color: #000000;
     border: 1px solid #e7e7e7;
     max-width: 86%;
 }
