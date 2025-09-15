@@ -5,8 +5,6 @@ A lightweight web app that answers Persona 5 Royal fusion questions using a smal
 **Frontend**: Static docs/ (served by GitHub Pages)  
 **Backend**: FastAPI API (deployed on Render)
 
-**Goal**: Keep backend code/keys off the client while letting the site be public.
-
 ## 🔗 Live URLs
 
 - **Frontend (GitHub Pages)**: https://lxriva.github.io/Avi-AI-1-P5R-Fusion-Chatbot
