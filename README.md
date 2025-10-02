@@ -7,7 +7,7 @@ A lightweight web app that answers Persona 5 Royal fusion questions using a smal
 
 ## 🔗 Live URLs
 
-- **Frontend (GitHub Pages)**: https://lxriva.github.io/Avi-AI-1-P5R-Fusion-Chatbot
+- **Frontend (GitHub Pages)**: https://lxriva.github.io/Persona-5-Royal-Fusion-Chatbot
 - **Backend (Render)**: https://avi-ai-1-p5r-fusion-chatbot.onrender.com
 
 > **Note**: Visiting the backend root may return 404; use `GET /health` or `POST /ask`.
